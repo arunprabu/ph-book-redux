@@ -1,0 +1,41 @@
+Why Redux? 
+  cricinfo scorecard example
+What's Redux?
+
+Create our Redux app. 
+Create Components such as Header, Footer, ContactForm, ContactList, ContactDetails
+1. Setup Router
+  https://flaviocopes.com/react-router/
+  https://blog.pusher.com/getting-started-with-react-router-v4/
+  http://manojsinghnegi.com/blog/2017/09/03/Implementing-redux-and-react-router-v4-in-your-react-app/
+
+  npm install react-router-dom
+  in app.js setup router 
+    import { BrowserRouter as Router } from 'react-router-dom'
+    <BrowserRouter>
+
+    </BrowserRouter>
+  then register the router paths within <BrowserRouter>
+    <Route exact path="/" component={Dashboard} />
+    <Route path="/about" component={About} />
+
+  Then refer: docs 
+  
+2. Redux 
+  Why Redux?
+  Cricinfo Example
+    Redux is a state management library that gives you access to the state anywhere in your components without the need to pass props.
+    'npm install --save redux react-redux'
+    'redux package'  is a separate framework, developed by open source community
+    'react-redux' is the official library that connects the two.
+
+    Refer HowReduxWorks.png
+    Data Flows unidirectionally.
+    Not Both ways data flow.
+    
+    Some Awesome Tutorials
+    https://codeburst.io/redux-a-crud-example-abb834d763c9
+    https://medium.com/@rajaraodv/a-guide-for-building-a-react-redux-crud-app-7fe0b8943d0f
+    
+
+Some best Resources: https://www.fullstackreact.com/30-days-of-react/

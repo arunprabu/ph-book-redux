@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
-class ContactForm extends Component {
-  // constructor(){
-  //   super(props);
-  //   console.log(props);
-  // }
-  
+class ContactForm extends Component {  
 
   onContactSubmit = (event) => {
     event.preventDefault();
     console.log( this);
-    const name = this.getName.value;
-    const email = this.getEmail.value;
-    const phone = this.getPhone.value;
 
-    console.log(name, email, phone);
+    //attach the data within it 
+    const data = {
+      name: this.getName.value,
+      email: this.getEmail.value,
+      phone: this.getPhone.value
+    } 
 
+    //dispatch an action with the data
+    this.props.dispatch({
+      type:'ADD_CONTACT',
+      data //es6 if names of properties and values matching then this is syntax
+    }); 
+
+    //clear the form fields
+    this.getName.value = '';
   }
 
   render(){
@@ -33,7 +39,7 @@ class ContactForm extends Component {
         </div>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
-          <input type="email" 
+          <input type="text" 
             className="form-control" 
             id="exampleInputEmail1" 
             aria-describedby="emailHelp" 
@@ -58,4 +64,4 @@ class ContactForm extends Component {
   
 }
 
-export default ContactForm;
+export default connect()(ContactForm);

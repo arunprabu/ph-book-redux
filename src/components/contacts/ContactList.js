@@ -25,7 +25,7 @@ class ContactList extends Component {
 //for unidirectional data flow-- state should not be editable
 const mapStateToProps = (state) => {
   return {
-    contacts: state
+    contacts: state.contacts    // after combining reducers 
   }
 }
 export default connect(mapStateToProps)(ContactList);

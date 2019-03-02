@@ -3,13 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';  // to create store 
+import { createStore, applyMiddleware } from 'redux';  // to create store 
 import { Provider } from 'react-redux';  ///connecting react with redux framework
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
-import contactReducer from './reducers/contactReducer';  // reducer should be given to the store
+//import contactReducer from './reducers/contactReducer';  // reducer should be given to the store
+
+import rootReducer from './reducers'; //combined reducers
+import { fetchAllContacts } from './actions/index';
 
 // this is the place to create store
-const store = createStore(contactReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+
+//To Setup Initial Loading
+store.dispatch(fetchAllContacts());
 
 ReactDOM.render(
   <Provider store={store}>
